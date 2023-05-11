@@ -127,12 +127,12 @@ Create the configMap:
 kubectl apply -f configmap-tomcat.yaml -n {namespace}
 ```
 
-## Create a StatefulSet: 
+## Create a deployment: 
 The statefulset create name pod, save the following text in a file statefulset-tomcat.yaml
 ```
 ---
 apiVersion: apps/v1
-kind: StatefulSet
+kind: Deployment
 metadata:
   name: backend
 spec:
