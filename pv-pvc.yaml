@@ -1,0 +1,27 @@
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: tomcat-pv
+spec:
+  storageClassName: default
+  accessModes:
+  - ReadWriteOnce
+  capacity:
+    storage: 1Gi
+  hostPath:
+    path: "/mnt/data/tomcat"
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  namespace: tomcat
+  name: tomcat-pvc
+  labels:
+    app: app
+spec:
+  storageClassName: default
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 1Gi
